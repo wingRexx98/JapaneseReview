@@ -40,6 +40,10 @@ public class KatakanaCheck : MonoBehaviour
             time.text = "0";
             timeCounter = 0f;
         }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            CheckUserInput();
+        }
     }
 
     public void CheckUserInput()

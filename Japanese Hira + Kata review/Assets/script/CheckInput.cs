@@ -20,6 +20,8 @@ public class CheckInput : MonoBehaviour
     private float timeCounter;
 
     private string correctText;
+
+    public CameraShake shake;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,11 @@ public class CheckInput : MonoBehaviour
             rightText.text = correctText;
             time.text = "0";
             timeCounter = 0f;
+            StartCoroutine(shake.Shake(.01f, .3f));
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            CheckUserInput();
         }
     }
 
@@ -64,11 +71,13 @@ public class CheckInput : MonoBehaviour
                 note.SetActive(true);
                 time.text = "0";
                 timeCounter = 0f;
+                StartCoroutine(shake.Shake(.15f, .4f));
             }
             else
             {
                 incorrect.SetActive(true);
                 rightText.text = correctText;
+                StartCoroutine(shake.Shake(.15f, .4f));
             }
         }
 

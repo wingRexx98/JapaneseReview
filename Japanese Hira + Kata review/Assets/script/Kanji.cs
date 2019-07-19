@@ -20,6 +20,7 @@ public class Kanji : MonoBehaviour
     private float timeCounter;
 
     private string correctText;
+
     void Start()
     {
         RandomWord(character);
@@ -39,6 +40,10 @@ public class Kanji : MonoBehaviour
             rightText.text = correctText;
             time.text = "0";
             timeCounter = 0f;
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            CheckUserInput();
         }
     }
 
